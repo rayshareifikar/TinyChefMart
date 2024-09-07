@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--4wk(la_$j814u(6eq!511+70ectt3t3l%6@52$zot9k4qzcrq
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "raysha-reifika-tinychefmart.pbp.cs.ui.ac.id"]
 
 
 # Application definition
