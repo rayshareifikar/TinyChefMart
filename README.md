@@ -46,17 +46,17 @@
         |
         | (Request: Mengirim/Mengetik URL)
         v
-    [Internet] ------------------> [Web Server] ------------------------> [Aplikasi] ---------------------> [urls.py]
-                                                 (Mengirim Request)                      (URL Routing)          |
-                                                                                                                |
-                                                                                                                | (Melakukan request)
-                                                                                                                v
-                                                                    [Templates Folder]  <--------------------[views.py]
-                                                                            |                (Rendered)          ^
-                                                                            |                                    | (Query Data)
-                                                                            v                                    v
-                                                                    [Client/Browser]                       [models.py] <----> [Database]
-                                                                                                                        
+    [Internet] ------------------> [Web Server] ------------------------------------------> [urls.py]
+                                                            (URL Routing)                       |
+                                                                                                |
+                                                                                                | (Melakukan request)
+                                                                                                v
+                                                    [Templates Folder]  <--------------------[views.py]
+                                                            |                                    ^
+                                                (Rendered)  |                                    | (Query Data)
+                                                            v                                    v
+                                                    [Client/Browser]                       [models.py] <----> [Database]
+                                                                                                        
                             
                 
     Client melalui browser mengetik sebuah url, dimana url akan mengirimkan request ke web server. Server akan memproses request dan melakukan url routing. dari url akan diekstrak argumen dari request tersebut. Dengan menggunakan database di models dan html template,  client akan menerima informasi kembali sebagai sebuah response
