@@ -1,4 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>Welcome to {{ app }}</h1>
 <p>Name : {{ name }}</p>
 <p>Class: {{ class }}</p>
+
+{% if not product_entries %}
+<p>Belum ada data product pada Tiny Chef Mart.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Id</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Quantity</th>
+  </tr>
+
+  {% comment %} Berikut cara memperlihatkan data product di bawah baris ini 
+  {% endcomment %} 
+  {% for product_entry in product_entries %}
+  <tr>
+    <td>{{product_entry.name}}</td>
+    <td>{{product_entry.id}}</td>
+    <td>{{product_entry.price}}</td>
+    <td>{{product_entry.desc}}</td>
+    <td>{{product_entry.quantity}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_product_entry' %}">
+  <button>Add New Product Entry</button>
+</a>
+{% endblock content %}
+
 
