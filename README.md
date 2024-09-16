@@ -1,3 +1,7 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+                                                             TUGAS 2
+------------------------------------------------------------------------------------------------------------------------------------------
+
 1. Tautan menuju aplikasi PWS yang sudah di-deploy
     Link PWS: https://pbp.cs.ui.ac.id/web/project/raysha.reifika/tinychefmart
 
@@ -104,27 +108,27 @@ Referensi:
 https://www.scaler.com/topics/django/relationships-in-django-models/
 https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-1
 
-![alt text](<Screenshot 2024-09-06 204307.png>)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+                                                             TUGAS 3
+------------------------------------------------------------------------------------------------------------------------------------------
 
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
-    - Dengan data delivery, memungkinkan komunikasi yang efisien dan efektif antara client ddan server melalui request HTTP.
+    - Dengan data delivery, memungkinkan komunikasi yang efisien dan efektif antara client dan server melalui request HTTP.
     - Data delivery memungkinkan client mendapatkan informasi secara real time.
     - Data delivery memastikan layanan yang saling berinteraksi dan berbagi data mendapatkan data yang diperlukan untuk berfungsi dengan baik.
     - Data delivery memastikan sinkronisassi data antar sistem
     - Data delivery mendukung penggunakan API yang memungkinkan integrasi antar sistem
-    In conclusion, Data delivery sangat penting untuk pengimplementasian  sebuah platform karena data delivery memastikan platform dapat mengirmkan dan menerima data dengan baik, cepat, dan efisien
-    sehingga memastikan pengalaman client yang optimal.
+
+    In conclusion, Data delivery sangat penting untuk pengimplementasian  sebuah platform karena data delivery memastikan platform dapat mengirmkan dan menerima data dengan baik, cepat, dan efisien sehingga memastikan pengalaman client yang optimal.
 
 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
     Menurut saya, JSON lebih baik daripada XML karena JSON memiliki sintaks yang identik dengan kode untuk membuat javascript objects 
-    sehingga mudah untuk diconvert JSON data kedalam native Javascript objects. Kemudian, kode untuk membaca dan menghasilkan JSON data 
-    dapat ditulis dalam bahasa pemograman apapun. Selain itu, untuk AJAX Applications, JSON lebih cepat dan lebih mudah dari pada XML. 
+    sehingga mudah untuk meng-convert JSON data kedalam native Javascript objects. Kemudian, kode untuk membaca dan menghasilkan JSON data dapat ditulis dalam bahasa pemograman apapun. Selain itu, untuk AJAX Applications, JSON lebih cepat dan lebih mudah dari pada XML. 
 
     Alasan JSON lebih populer:
-    - Sintaksnya JSON yang sederhana dan memiliki struktur yang mirip dengan Javascript. Sedangkan XML menggunakan tag yang lebih kompleks.
-    Oleh karena itu, sintaks JSON lebih efisien dalam penulisan dan pembacaan data serta memudahkan dalam parsing. 
-    - Dalam AJAX Applications, pengiriman data lebih cepat saat menggunakan JSON karena tidak diperlukan tag penutup yang berlebihan sehingga 
-    ukuran data yang dikirimkan lebih kecil.
+    - Sintaksnya JSON yang sederhana dan memiliki struktur yang mirip dengan Javascript. Sedangkan XML menggunakan tag yang lebih kompleks. Oleh karena itu, sintaks JSON lebih efisien dalam penulisan dan pembacaan data serta memudahkan dalam parsing. 
+    - Dalam AJAX Applications, pengiriman data lebih cepat saat menggunakan JSON karena tidak diperlukan tag penutup yang berlebihan sehingga ukuran data yang dikirimkan lebih kecil.
     - Struktur data JSON juga lebih sederhana daripada XML karena JSON menggunakan kurung kurawal untuk objek dan kurung siku untuk array 
     sehingga lebih mudah saat bekerja dengan struktur data yang kompleks. Sedangkan, XML menggunakan tag yang lebih rumit untuk dibaca dan diolah.
 
@@ -136,16 +140,35 @@ https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-1
     name = form.cleaned_data['name']
 
     Mengapa method is_valid() dibutuhkan:
-    - Method is_valid() memastikan bahwa hanya data yang sesuai aturan (valid) saja yang diproses/disimpan. Dengan hal ini dapat mencegah data yang salah atau berbahaya masuk ke dalam sistem yang dapat menyebabkan data corrupt dan kesalahan fatal lainnya. 
-    Kemudian, method is_valid() dapat memberikan respon ketika terdapat pengguna yang memberikan input yang salah sehingga pengguna dapat mengetahui apa yang harus diperbaiki. 
+    - Method is_valid() memastikan bahwa hanya data yang sesuai aturan (valid) saja yang diproses/disimpan. Dengan hal ini dapat mencegah data yang salah atau berbahaya masuk ke dalam sistem yang dapat menyebabkan data corrupt dan kesalahan fatal lainnya. Kemudian, method is_valid() dapat memberikan respon ketika terdapat pengguna yang memberikan input yang salah sehingga pengguna dapat mengetahui apa yang harus diperbaiki. 
     
 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
-    CSRF (Cross-Site Request Forgery) adalah sistem keamanan yang melindungi aplikasi web dari serangan yang dinamakan Cross-Site Request Forgery (CSRF). 
-    Saat membuat form django, csrf_token dibutuhkan untuk memastikan setiap dilakukan POST yang dikirim ke server berasal dari sumber resmi. 
-    Jika kita tidak menambahkan csrf_token, aplikasi akan sangat rentan terhadap serangan CSRF karena aplikasi tidak dapat membedakan antara permintaan resmi dan permintaan yang dimanipulasi sehingga hacker dapat memanipulasi pengguna untuk melakukan tindakan tidak sah di aplikasi web tanpa sepengetahuan pengguna.
-    Jika serangan tersebut berhasil, hacker dapat mengakses data sensitif, seperti akun bank, dan melakukan tindakan berbahaya lainnya.
+    CSRF (Cross-Site Request Forgery) adalah sistem keamanan yang melindungi aplikasi web dari serangan yang dinamakan Cross-Site Request Forgery (CSRF). Saat membuat form django, csrf_token dibutuhkan untuk memastikan setiap dilakukan POST yang dikirim ke server berasal dari sumber resmi. 
+
+    Jika kita tidak menambahkan csrf_token, aplikasi akan sangat rentan terhadap serangan CSRF karena aplikasi tidak dapat membedakan antara permintaan resmi dan permintaan yang dimanipulasi sehingga hacker dapat memanipulasi pengguna untuk melakukan tindakan tidak sah di aplikasi web tanpa sepengetahuan pengguna. Jika serangan tersebut berhasil, hacker dapat mengakses data sensitif, seperti akun bank, dan melakukan tindakan berbahaya lainnya.
+
+    Hacker dapat memanfaatkan hal tersebut dengan membuat web berbahaya yang dapat memberikan request ke aplikasi django yang rentan. Kemudian, ketika pengguna sudah login ke web tersebut, akan terdapat request berbahaya yang dikirimkan ke server tanpa csrf_token. Tanpa csrf_token, server tidak bisa mendeteksi request tersebut resmi atau tidak sehingga server memproses request tersebut.
     
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+    - Membuat input form untuk menambahkan objek model pada app sebelumnya
+        - Di dalam main membuat file forms.py untuk menerima input data
+        - Membuat base.html didalam folder templates di direktori utama sebagai kerangka umum, lalu ubah settings pada bagian templates dengan menambahkan 'DIRS': [BASE_DIR / 'templates'],
+        - Pada folder templates di direktori main, tambahkan block content
+        - Pada views.py di main, tambahkan import redirect. Lalu, buat fungsi create_product_entry dengan parameter request untuk dilakukan method is_valid. Kemudian, tambahkan product_entries didalam show_main.
+        - Tambahkan path url di urls.py
+        - Buat file bernama create_product_entry.html pada direktori main/templates.
+        - Didalam main.html, tambahkan kode untuk menampilkan product dan tombol add product entry untuk menerima input data.
+
+    - Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
+        - Menambahkan id dan primary key didalam file models.py, lalu lakukan migrasi melalui cmd.
+        - Pada views.py, tambahkan import HttpResponse dan serializers
+        - Membuat fungsi dengan nama show_xml, show_json dengan parameter request.
+        - Membuat fungsi dengan nama show_xml_by_id, show_json_by_id dengan parameter request dan id
+
+    - Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+        - Pada urls.py, tambahkan import show_xml, show_json dan tambahkan path urlnya sehingga linknya dapat dibuka dengan format xml atau json.
+        - Pada urls.py, tambahkan import show_xml_by_id, show_json_by_id dan tambahkan path urlnya sehingga linknya dapat dibuka dengan format xml atau json berdasarkan idnya.
+
 6. Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
 
 Referensi:
