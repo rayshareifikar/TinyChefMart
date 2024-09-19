@@ -171,6 +171,13 @@ https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-1
 
 6. Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
 
+![Screenshot 2024-09-16 191618](https://github.com/user-attachments/assets/0eb78173-1c67-4320-9ecd-d16651b071bf)
+![Screenshot 2024-09-16 191640](https://github.com/user-attachments/assets/2a5af1f7-c395-48a4-8159-83528be39d82)
+![Screenshot 2024-09-16 191655](https://github.com/user-attachments/assets/754cb741-b318-47aa-a446-a990c61f69ec)
+![Screenshot 2024-09-16 191559](https://github.com/user-attachments/assets/b2dae56b-22b4-45d1-9f07-951efd1c566a)
+
+
+
 Referensi:
 https://scele.cs.ui.ac.id/pluginfile.php/238122/mod_resource/content/1/04%20-%20Data%20Delivery.pdf
 https://www.thedevspace.io/community/django-forms
