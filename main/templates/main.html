@@ -3,7 +3,7 @@
 <h1>Welcome to {{ app }}</h1>
 <p>Name : {{ name }}</p>
 <p>Class: {{ class }}</p>
-
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 {% if not product_entries %}
 <p>Belum ada data product pada Tiny Chef Mart.</p>
 {% else %}
@@ -35,6 +35,11 @@
 <a href="{% url 'main:create_product_entry' %}">
   <button>Add New Product Entry</button>
 </a>
+
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
 {% endblock content %}
 
 
