@@ -181,3 +181,94 @@ https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-1
 Referensi:
 https://scele.cs.ui.ac.id/pluginfile.php/238122/mod_resource/content/1/04%20-%20Data%20Delivery.pdf
 https://www.thedevspace.io/community/django-forms
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+                                                             TUGAS 4
+------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Apa perbedaan antara HttpResponseRedirect() dan redirect():
+    - Pengertian:
+        - HttpResponseRedirect(): Kelas bawaan dari Django untuk membuat respon HTTP. Terdapat berbagai status kode, seperti 302 yang menandakan redirect.
+        - redirect(): Fungsi dari Django yang lebih sederhana dan fleksibel.
+    - Argumen:
+        - HttpResponseRedirect(): Menerima url sebagai argumen. 
+        - redirect(): Menerima url, nama url, atau objek sebagai argumen.
+    - Pengubahan ke url:
+        - HttpResponseRedirect(): Tidak secara langsung sehingga dibutuhkan fungsi reverse(). 
+        - redirect(): Secara langsung mengarahkan ke url.
+    - Contoh: 
+        - HttpResponseRedirect():
+            response = HttpResponseRedirect(reverse('main:login'))
+        - redirect():
+            return redirect('main:login')
+
+2. Jelaskan cara kerja penghubungan model MoodEntry dengan User!
+    Untuk menghubungkan model dengan user, pada model ditambahkan foreignKey. Dengan foreignKey, satu pengguna akan memiliki banyak entry mood (Relasi one to many). ForeignKey dilakukan dengan kode seperti ini:
+    user = models.ForeignKey(User, on_delete=models.CASCADE). Namun, sebleumnya perlu dilakuakn import 
+    from django.contrib.auth.models import User
+
+    Kemudian, user yang diidentifikasi hanya user yang sedang login dengan menggunakan request.user. Dengan cara ini, entry mood pada saat itu hanya berlaku untuk user yang sedang login. Jika kita logout, dan login dengan user berbeda, data sebelumnya tidak akan ada, tetapi, jika logout dan login dengan user yang sama, data akan tetap ada.
+    product_entries = ProductTinyChef.objects.filter(user=request.user)
+ 
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+    - Perbedaan:
+        - Definisi:
+            - Authentication: Proses untuk memverifikasi identitas pengguna yang login.
+            - Authorization: Proses untuk memverifikasi seorang pengguna dapat mengakses sesuatu.
+        - Proses saat login:
+            - Authentication: 
+                - Pengguna menginput nama dan password
+                - Django mengecek apakah sesuai dengan data di database
+                - Jika sesuai, akan dibuat sebuah session agar pengguna yang sudah login sehingga tidak perlu login berulang kali
+            - Authorization: 
+                - Setelah login dan diotentikasi, sistem memeriksa hak akses. 
+                - Lalu, authorization menentukan halaman tertentu saja yang dapat diakses pengguna tersebut berdasarkan peran hak aksesnya.
+        - Cara django mengimplementasikan:
+            - Authentication: 
+                - Terdapat fungsi authenticate() untuk memverifikasi identitas pengguna
+                - Terdapat fungsi login() untuk menyimpan pengguna di session tersebut. Dengan session, django dapat melacak status login server.
+            - Authorization:
+                - Dengan decorator @login_required, django memastikan bahwa pengguna harus login sebelum mengakses halaman tertentu
+    
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+    Django mengingat pengguna yang telah login dengan session dan cookies. Session adalah cara Django untuk menyimpan data pengguna. Session disimpan didalam server bukan browser. Namun, selain session terdapat cookies yang menyimpan session di browser, kemudian dikirim ke server. Session ID akan disimpan didalam cookies. Django menggabungkan session dan cookie untuk melacak status login pengguna saat menggunakan web tersebut. 
+
+    Kegunaan cookies:
+    - Melakukan pelacakan aktivitas pengguna
+    - Jika sudah login, lalu pengguna menutup browser, cookies dapat mengingat pengguna
+    - Menyimpan preferensi pengguna, seperti tema dan bahasa browser
+
+    Apakah semua cookies aman?
+    - Tidak semua cookies aman. Cookies harus terdapat "Secure" atau "HttpOnly" untuk menghindari ancaman keamanan. Selain itu, dapat juga digunakan CSRF token dan dikirimkan melalui HTTPS untuk memastikan kemanan.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+    - Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+        - Mengaktifkan env
+        - Pada views, tambahkan import untuk membuat form, authenticate, login, dan logout. Lalu, menambahkan fungsi register, login, dan logout dan membuat file HTML baru dengan nama register.html dan login.html pada main/templates. 
+        - Pada urls.py, menambahkan import dan path url register, login, dan logout.
+        - Lalu, menambahkan decorator login_required agar sebelum mengakses halaman belanja harus login terlebih dahulu
+
+    - Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+        - Mengaktifkan env
+        - Menjalankan python manage.py runserver
+        - Membuka http://localhost:8000/ 
+        - Registrasi dan login dengan 2 akun berbeda
+        - Untuk masing-masing akun, buat 3 data
+
+    - Menghubungkan model Product dengan User.
+        - Pada models.py, menambahkan import user
+        - Lalu, tambahkan foreignkey pada ProductEntry
+            user = models.ForeignKey(User, on_delete=models.CASCADE)
+        - Lalu, input namanya diubah menjadi request.user
+        - Lalu, untuk menyaring product berdasarkan user dilakukan 
+        product_entries = ProductTinyChef.objects.filter(user=request.user)
+        - Lalu, lakukan migrate
+
+    - Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+        - Tambahkan cookie berupa last_login pada views.py
+        - Pada fungsi login, tambahkan sebagai berikut
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+        - Pada show_main, dimasukkan context last_login
+        - Pada logout(), juga tambahkan response.delete_cookie('last_login') agar ketika logout, data loginnya dihapus
+        - Menambahkan last_login pada main.html
