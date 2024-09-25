@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% include 'navbar.html' %}
 <h1>Welcome to {{ app }}</h1>
 <p>Name : {{ name }}</p>
 <p>Class: {{ class }}</p>
@@ -25,6 +26,20 @@
     <td>{{product_entry.price}}</td>
     <td>{{product_entry.desc}}</td>
     <td>{{product_entry.quantity}}</td>
+    <td>
+      <a href="{% url 'main:edit_product' product_entry.pk %}">
+          <button>
+              Edit
+          </button>
+      </a>
+    </td>
+    <td>
+      <a href="{% url 'main:delete_product' product_entry.pk %}">
+          <button>
+              Delete
+          </button>
+      </a>
+    </td>
   </tr>
   {% endfor %}
 </table>
