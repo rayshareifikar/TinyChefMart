@@ -27,7 +27,7 @@ def show_main(request):
     return render(request, "main.html", context)
 
 def create_product_entry(request):
-    form = ProductTinyChefForm(request.POST or None)
+    form = ProductTinyChefForm(request.POST, request.FILES or None)
 
     if form.is_valid() and request.method == 'POST':
         product_entry = form.save(commit=False)
@@ -112,3 +112,4 @@ def delete_product(request, id):
     product.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
+

@@ -12,4 +12,6 @@ class ProductTinyChef(models.Model):
     price = models.IntegerField()
     desc = models.TextField()
     quantity = models.IntegerField()
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+
   
