@@ -6,16 +6,18 @@
 }
 .form-style form input:focus, form textarea:focus, form select:focus {
     outline: none;
-    border-color: #80694d;
-    box-shadow: 0 0 0 3px rgba(148, 123, 89, 0.5); /* Warna ring coklat muda */
+    border-color: #193728;
+    box-shadow: 0 0 0 3px rgba(27, 59, 25, 0.5); /* Warna ring */
 }
 @keyframes shine {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
 }
 .animate-shine {
-    background: linear-gradient(120deg, rgba(148, 123, 89, 0.5), rgba(148, 123, 89, 0.5) 50%, rgba(148, 123, 89, 0.5));
+    background: linear-gradient(120deg, rgba(27, 59, 25, 0.5), rgba(27, 59, 25, 0.5) 50%, rgba(27, 59, 25, 0.5));
     background-size: 200% 100%;
     animation: shine 3s infinite;
 }
+
+
 

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
 <title>Register</title>
@@ -6,9 +7,14 @@
 
 {% block content %}
 <div class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  
   <div class="max-w-md w-full space-y-8 form-style">
     <div>
-      <h1 class="mt-2 text-center text-[##947b59 text-5xl font-extrabold" style="color: #947b59;">
+      <div class="text-center"> <!-- Centering the image and text -->
+        <!-- Image above the title -->
+        <img src="{% static 'image/Logo.png' %}" alt="Logo" class="w-24 h-24 mb-2 mx-auto"/> <!-- Adjust width and height as needed -->
+  
+      <h1 class="mt-2 text-center text-[##1e4b35 text-5xl font-extrabold" style="color: #1e4b35;">
         Tiny Chef Mart
       </h1>
       <h2 class="mt-6 text-center text-3xl font-extrabold text-black">
@@ -44,7 +50,7 @@
       </div>
 
       <div>
-        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#947b59] hover:bg-[#80694d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#80694d] cursor pointer">
+        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#1e4b35] hover:bg-[#193728] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#193728] cursor pointer">
           Register
         </button>
       </div>
@@ -63,7 +69,7 @@
     <div class="text-center mt-4">
       <p class="text-sm text-black">
         Already have an account?
-        <a href="{% url 'main:login' %}" class="font-medium text-[#947b59] hover:text-[#80694d] cursor-pointer">
+        <a href="{% url 'main:login' %}" class="font-medium text-[#1e4b35] hover:text-[#193728] cursor-pointer">
           Login here
         </a>
       </p>

@@ -15,13 +15,13 @@ from django.core import serializers
 @login_required(login_url='/login')
 def show_main(request):
     product_entries = ProductTinyChef.objects.filter(user=request.user)
+
     context = {
         'app' : 'Tiny Chef Mart',
         'name': request.user.username,
         'class': 'PBP A',
         'product_entries': product_entries,
         'last_login': request.COOKIES['last_login'],
-
     }
 
     return render(request, "main.html", context)
@@ -113,3 +113,15 @@ def delete_product(request, id):
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
 
+def product_page(request):
+    # Ambil semua produk dari database
+    product_entries = ProductTinyChef.objects.filter(user=request.user)
+    context = {
+        'app' : 'Tiny Chef Mart',
+        'name': request.user.username,
+        'class': 'PBP A',
+        'product_entries': product_entries,
+        'last_login': request.COOKIES['last_login'],
+
+    }
+    return render(request, "product_page.html", context)
