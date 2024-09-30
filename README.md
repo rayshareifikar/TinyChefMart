@@ -272,3 +272,71 @@ https://www.thedevspace.io/community/django-forms
         - Pada show_main, dimasukkan context last_login
         - Pada logout(), juga tambahkan response.delete_cookie('last_login') agar ketika logout, data loginnya dihapus
         - Menambahkan last_login pada main.html
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+                                                             TUGAS 5
+------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+    - Inline styles : Selector yang diterapkan langsung pada elemen HTML
+    contoh:
+    <p style="color: red;">Teks ini merah</p>
+
+    - ID selectors : Selector yang menggunakan ID elemen dan memiliki # didepannya
+    contoh:
+    <p id="intro">Teks ini menggunakan ID</p>
+
+    #intro {
+    color: blue;
+    }   
+
+    - Classes selector : Selektor ini digunakan ketika ingin mengatur gaya berdasarkan kelas elemen, yang dapat diterapkan pada beberapa elemen HTML. Ditandai dengan . diawal
+    contoh:
+    <p class="highlight">Teks ini menggunakan kelas</p>
+
+    .highlight {
+    color: green;
+    }
+
+    - Element selector : Elemen dipilih berdasarkan tag HTMLnya
+    contoh:
+    <p>Teks ini menggunakan selektor elemen</p>
+
+    p {
+    color: black;
+    }
+
+    CSS Selector memiliki prioritas, yaitu yang pertama inline styles, lalu id selector, lalu class selector,dan yang terakhir element selectors. Jika ada lebih dari satu gaya yang diterapkan ke elemen yang sama, aturan dengan prioritas lebih tinggi akan digunakan. Namun, jika terdapat gaya dengan prioritas yang sama, akan digunakan yang ditulis terakhir,
+
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+    Responsive design adalah cara menyusun web agar secara otomatis dapat menyesuaikan skala dan elemen sesuai dengan ukuran layar.
+
+    - Bagi developer, responsive design dapat menghemat biaya dan lebih efisien untuk pengelolaan karena developer hanya perlu membuat 1 situs web yang dapat menyesuaikan dengan berbagai versi dengan berbagai skala untuk mobile ataupun desktop.
+    - Dengan responsive design, Google melalui Search Engine Optimization (SEO) memberikan website tersebut boost yang lebih banyak sehingga lebih sering ditampilkan sebagai hasil pencarian.
+    -  Sebagai pengguna, dengan responsive design, dapat membantu meningkatkan user experience karena dapat dipastikan konten dapat dilihat lebih cepat dan pandangan pengguna akan lebih positif.
+
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+    - Margin: 
+        - Area di luar border yang memberi jarak antar elemen. 
+        - Dibagian paling luar elemen 
+        - Tidak mempengaruhi ukuran elemen.
+        - Cara: margin: 20px;
+    - Border: 
+        - Garis yang mengelilingi elemen. 
+        - Terletak diantara margin dan padding. 
+        - Mempengaruhi ukuran elemen.
+        - Cara: border: 3px solid blue;
+    - Padding:
+        - Area didalam border yang memberi jarak antara elemen dan border
+        - Terletak diantara elemen dan border
+        - Mempengaruhi ukuran elemen
+        - Cara: padding: 30px;
+
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+Referensi:
+https://scele.cs.ui.ac.id/pluginfile.php/239159/mod_resource/content/1/06%20-%20Web%20Design%20Using%20HTML5%20and%20CSS3.pdf
+https://www.webfx.com/web-design/learn/why-responsive-design-important/
+https://www.exabytes.co.id/blog/perbedaan-margin-dan-padding/
