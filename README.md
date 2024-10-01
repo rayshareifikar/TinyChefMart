@@ -334,8 +334,29 @@ https://www.thedevspace.io/community/django-forms
         - Cara: padding: 30px;
 
 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
-5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+   - Flexbox:
+     - Flexbox adalah sistem layout di css yang digunakan untuk mengatur elemen dalam satu dimensi.
+     - Elemen diatur berdasarkan container sehingga dapat mengatur posisi, ukuran, dan jarak antar elemen dengan mudah.
+     - Cocok untuk design yang simple, seperti navigasi, form, dan daftar, yang elemennya disusun dalam 1 baris atau 1 kolom.
+   - Grid:
+     - Grid adalah sistem layout di css yang digunakan untuk mengatur elemen dalam dua dimensi.
+     - Elemen diatur berdasarkan grid sehingga memungkinan untuk menentukan posisi tepat elemen yang diinginkan
+     -  Cocok untuk design yang kompleks, seperti layout halaman, yang elemennya disusun dalam struktur yang lebih terkoordinasi.
+       
+6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+  - Menambahkan script tailwind ke dalam base.html
+    <script src="https://cdn.tailwindcss.com">
+  - Di dalam views.py, tambahkan fungsi edit dan delete
+  - Buat file html baru untuk fungsi edit
+  - Tambahkan path url untuk edit dan delete
+  - Di dalam main.html tambahkan tombol edit dan delete
+  - Membuat navbar.html untuk memiliki navbar
+  - Menambahkan navbar ke dalam main.html, create product, dan edit.
+  - Menambahkan konfigurasi static di settings agar dapat menambahkan gambar dan styling pada page
+  - Buat folder dengan root static/css, lalu didalamnya tambahkan folder global.css untuk styling semua halaman dan image untuk kumplan gambar yang nantinya akan ditampilkan di page
+  - Melakukan styling untuk login, register, main, edit, dan product page. Kemudian, pada card productnya juga
 
+  
 Referensi:
 https://scele.cs.ui.ac.id/pluginfile.php/239159/mod_resource/content/1/06%20-%20Web%20Design%20Using%20HTML5%20and%20CSS3.pdf
 https://www.webfx.com/web-design/learn/why-responsive-design-important/
