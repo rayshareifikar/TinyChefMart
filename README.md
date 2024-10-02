@@ -320,6 +320,7 @@ https://www.thedevspace.io/community/django-forms
     Contoh aplikasi yang sudah menerapkan:
      - Spotify
      - Youtube
+    
     Contoh aplikasi yang belum menerapkan:
      - Beberapa website kecil: Website tersebut hanya optimal di desktop. Saat diakses di perangkat mobile, teks terlalu kecil, tata letak tidak proporsional, dan tombol sulit diakses.
                                                                            
