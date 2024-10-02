@@ -310,13 +310,20 @@ https://www.thedevspace.io/community/django-forms
     CSS Selector memiliki prioritas, yaitu yang pertama inline styles, lalu id selector, lalu class selector,dan yang terakhir element selectors. Jika ada lebih dari satu gaya yang diterapkan ke elemen yang sama, aturan dengan prioritas lebih tinggi akan digunakan. Namun, jika terdapat gaya dengan prioritas yang sama, akan digunakan yang ditulis terakhir,
 
 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
-    Responsive design adalah cara menyusun web agar secara otomatis dapat menyesuaikan skala dan elemen sesuai dengan ukuran layar.
+
+   Responsive design adalah cara menyusun web agar secara otomatis dapat menyesuaikan skala dan elemen sesuai dengan ukuran layar.
 
     - Bagi developer, responsive design dapat menghemat biaya dan lebih efisien untuk pengelolaan karena developer hanya perlu membuat 1 situs web yang dapat menyesuaikan dengan berbagai versi dengan berbagai skala untuk mobile ataupun desktop.
     - Dengan responsive design, Google melalui Search Engine Optimization (SEO) memberikan website tersebut boost yang lebih banyak sehingga lebih sering ditampilkan sebagai hasil pencarian.
     -  Sebagai pengguna, dengan responsive design, dapat membantu meningkatkan user experience karena dapat dipastikan konten dapat dilihat lebih cepat dan pandangan pengguna akan lebih positif.
-
-3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+  
+    Contoh aplikasi yang sudah menerapkan:
+     - Spotify
+     - Youtube
+    Contoh aplikasi yang belum menerapkan:
+     - Beberapa website kecil: Website tersebut hanya optimal di desktop. Saat diakses di perangkat mobile, teks terlalu kecil, tata letak tidak proporsional, dan tombol sulit diakses.
+                                                                           
+4. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
     - Margin: 
         - Area di luar border yang memberi jarak antar elemen. 
         - Dibagian paling luar elemen 
@@ -333,7 +340,7 @@ https://www.thedevspace.io/community/django-forms
         - Mempengaruhi ukuran elemen
         - Cara: padding: 30px;
 
-4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+5. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
    - Flexbox:
      - Flexbox adalah sistem layout di css yang digunakan untuk mengatur elemen dalam satu dimensi.
      - Elemen diatur berdasarkan container sehingga dapat mengatur posisi, ukuran, dan jarak antar elemen dengan mudah.
