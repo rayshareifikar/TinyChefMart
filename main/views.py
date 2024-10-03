@@ -11,16 +11,18 @@ from main.forms import ProductTinyChefForm
 from main.models import ProductTinyChef
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
+
 # Create your views here.
 @login_required(login_url='/login')
 def show_main(request):
-    product_entries = ProductTinyChef.objects.filter(user=request.user)
 
     context = {
         'app' : 'Tiny Chef Mart',
         'name': request.user.username,
         'class': 'PBP A',
-        'product_entries': product_entries,
         'last_login': request.COOKIES['last_login'],
     }
 
@@ -39,11 +41,11 @@ def create_product_entry(request):
     return render(request, "create_product_entry.html", context)
 
 def show_xml(request):
-    data = ProductTinyChef.objects.all()
+    data = ProductTinyChef.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = ProductTinyChef.objects.all()
+    data = ProductTinyChef.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 
@@ -73,11 +75,13 @@ def login_user(request):
 
         if form.is_valid():
             user = form.get_user()
-            if user is not None:
-                login(request, user)
-                response = HttpResponseRedirect(reverse("main:show_main"))
-                response.set_cookie('last_login', str(datetime.datetime.now()))
-                return response
+            login(request, user)
+            response = HttpResponseRedirect(reverse("main:show_main"))
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
+        else:
+            messages.error(request, "Invalid username or password. Please try again.")
+
 
     else:
         form = AuthenticationForm(request)
@@ -125,3 +129,24 @@ def product_page(request):
 
     }
     return render(request, "product_page.html", context)
+
+@csrf_exempt
+@require_POST
+def add_product_entry_ajax(request):
+    name = strip_tags(request.POST.get("name"))
+    price = strip_tags(request.POST.get("price"))
+    desc = request.POST.get("desc")
+    quantity = request.POST.get("quantity")
+    image = request.POST.get("image")
+    user = request.user
+
+    new_product = ProductTinyChef(
+        name=name, price=price,
+        desc=desc, quantity=quantity,
+        image=image, user=user
+    )
+    new_product.save()
+
+    return HttpResponse(b"CREATED", status=201)
+    
+  
