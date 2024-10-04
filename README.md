@@ -369,3 +369,42 @@ Referensi:
 https://scele.cs.ui.ac.id/pluginfile.php/239159/mod_resource/content/1/06%20-%20Web%20Design%20Using%20HTML5%20and%20CSS3.pdf
 https://www.webfx.com/web-design/learn/why-responsive-design-important/
 https://www.exabytes.co.id/blog/perbedaan-margin-dan-padding/
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+                                                             TUGAS 6
+------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+    - Javascript memungkinkan developer untuk membuat web yang interaktif dan dinamis, seperti refresh page otomatis.
+    - Client dapat menggunakan browser secara real time sehingga meningkatkan kecepatan web.
+    - Javascript compatible untuk hampir semua browser sehingga dapat diakses dengan mudah oleh client.
+    - Dapat mengubah UI UX web dengan mudah karena terdapat library seperti jQuery dan Umbrella JS.
+
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+    - Fungsi dari penggunaan await ketika kita menggunakan fetch() adalah untuk menunggu eksekusi kode hingga promise selesai, sebelum menjalankan kode selanjutnya. 
+    - Jika tidak menggunakan await, kode akan menjadi asynchronous dan tidak akan menunggu proses fetch() selesai sebelum melanjutkan eksekusi.
+
+3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+    - Decorator @csrf_exempt digunakan untuk menonaktifkan proteksi CSRF (Cross-Site Request Forgery) pada request tertentu, seperti AJAX POST.
+    - Decorator @csrf_exempt membuat Django tidak perlu mengecek keberadaan csrf_token pada POST request yang dikirimkan ke fungsi.
+
+4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+    - Pada front end, pengguna dapat memanipulasi kode JavaScript atau mengirim request langsung ke server. Oleh karena itu, pembersihan data input dilakukan di backend agar server dapat memiliki kontrol penuh untuk mencegah berbagai serangan.
+    - Pada backend dapat dipastikan data yang dikirim ke server selalu valid.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+    - Buat fungsi views baru untuk menangani permintaan POST atau GET dari AJAX, dengan decorator @csrf_exempt dan @require_POST. Lalu, hubungkan dengan urls
+    - Filter data sesuai user
+    - Membuat block <script> dengan async function dengan menggunakan fetch().
+    - Buat fungsi async function untuk refresh otomatis yang didalamnya juga dibuat card untuk ajax
+    - Buat form  di template HTML yang mengirimkan data menggunakan JavaScript
+    - Di bagian JavaScript, respons dari server akan diterima dalam bentuk JSON dan ditampilkan pada elemen DOM 
+    - Membuat button untuk ajax
+    - Membersihkan data dan validasi input di backend
+        
+Referensi:
+https://aws.amazon.com/id/what-is/javascript/#:~:text=JavaScript%20muncul%20sebagai%20teknologi%20sisi,letak%20konten%20di%20halaman%20web.
+https://binar.co.id/blog/apa-itu-javascript-manfaat-fungsi-dan-contohnya
+https://id.javascript.info/async-await
+https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-5
